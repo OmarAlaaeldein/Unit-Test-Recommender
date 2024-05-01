@@ -36,8 +36,8 @@ print(f"Getting user input took {get_input_end_time - get_input_start_time:.2f} 
 
 if flag == 1:
     # Stage 3: Text similarity
-    text_similarity_start_time = time.perf_counter()
     text = input("Enter the text: ")
+    text_similarity_start_time = time.perf_counter()
     text_embedding = torch.tensor(model.encode_paragraph(text))
     paragraph_embeddings = torch.stack(list(unittest_text_embeddings.values()), dim=0)
     top_k_indices = model.semantic_search(text_embedding.unsqueeze(0), paragraph_embeddings, 1)
@@ -57,8 +57,8 @@ if flag == 1:
     print(f"Text similarity took {text_similarity_end_time - text_similarity_start_time:.2f} seconds")
 elif flag == 2:
     # Stage 3: Code similarity
-    code_similarity_start_time = time.perf_counter()
     code_input = input("Enter the code: ")
+    code_similarity_start_time = time.perf_counter()
     code_embedding = torch.tensor(model.encode_paragraph(model.summarize_unittests(code_input)))
     paragraph_embeddings = torch.stack(list(unittest_text_embeddings.values()), dim=0)
     top_k_indices = model.semantic_search(code_embedding.unsqueeze(0), paragraph_embeddings, 1)
