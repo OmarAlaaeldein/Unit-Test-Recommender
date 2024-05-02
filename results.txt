@@ -1,51 +1,51 @@
 [
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "import pytest\nfrom closest_integer import closest_integer\n\n@pytest.mark.parametrize('input_, expected', [\n    ('10', 10),\n    ('14.9', 15),\n    ('17.6', 18),\n])\ndef test_positive_cases(input_, expected):\n    result = closest_integer(input_)\n    assert result == expected\n\n@pytest.mark.parametrize('input_, expected', [\n    ('-10', -10),\n    ('-14.9', -15),\n    ('-17.6', -18),\n])\ndef test_negative_cases(input_, expected):\n    result = closest_integer(input_)\n    assert result == expected\n\n@pytest.mark.parametrize('input_, expected', [\n    ('14.5', 15),\n    ('-14.5', -15),\n    ('14.4', 14),\n    ('-14.4', -14),\n])\ndef test_tiebreaker_away_zero(input_, expected):\n    result = closest_integer(input_)\n    assert result == expected\n",
         "similarity_score": 0.7195327281951904
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "from file_name_check import file_name_check\nimport pytest\n\n@pytest.mark.parametrize('filename, expected_result', [\n    (\"example.txt\", \"Yes\"),\n    (\"1example.dll\", \"No\"),\n    (\"hello.exe\", \"Yes\"),\n    (\"myprogram.dll\", \"Yes\"),\n    (\"thisisaverylongfilenamethatshouldnotbevalid.doc\", \"No\"),\n    (\"noextension\", \"No\"),\n    (\"toomanyextentions.txt.pdf\", \"No\"),\n    (\"threedigitsinfront007.txt\", \"Yes\"),\n    (\"morethanthreedigitsinthebeginning0008564.txt\", \"No\"),\n    (\"emptystringbeforeperiod..txt\", \"No\"),\n    (\"onlyonedot.txt.\", \"No\"),\n    (\"twoconsecutivedots...txt\", \"No\"),\n    (\"multipledotsseparatedbydigits1.2.3.txt\", \"No\"),\n    (\"endingwithaunderscore.txt_\", \"No\"),\n    (\"havingbothalphanumericandspecialchars.txt?/<>\\\\|[]{}\", \"No\"),\n    (\"havingbothalphanumericspecialcharsanddots.txt?./<>.???\", \"No\"),\n    ])\ndef test_file_name_check(filename, expected_result):\n    actual_result = file_name_check(filename)\n    assert actual_result == expected_result, f\"Expected {expected_result} but got {actual_result}\"",
         "similarity_score": 1.0
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "from typing import List, Optional, Tuple\nfrom find_closest_elements import find_closest_elements\n\n\ndef test_find_closest_elements():\n    numbers = [1.0, 2.0, 3.0, 4.0, 5.0, 2.2]\n    output = find_closest_elements(numbers)\n    expected_output = (2.0, 2.2)\n    assert output == expected_output",
         "similarity_score": 0.604952335357666
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "import unittest\nfrom numerical_letter_grade import numerical_letter_grade\n\nclass TestNumericLetterGrade(unittest.TestCase):\n    def test_numeric_letter_grade(self):\n        # Test with sample data\n        self.assertEqual(numerical_letter_grade([4.0, 3, 1.7, 2, 3.5]), ['A+', 'B', 'C-', 'C', 'A-'])\n\n        # Test with edge cases\n        self.assertEqual(numerical_letter_grade([1.2]), ['D+'])\n        self.assertEqual(numerical_letter_grade([0.0]), ['E'])\n        self.assertEqual(numerical_letter_grade([-1.0]), ['E'])\n\nif __name__ == '__main__':\n    unittest.main()",
         "similarity_score": 0.7314356565475464
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "import unittest\nfrom separate_paren_groups import separate_paren_groups\n\nclass TestSeparateParenGroups(unittest.TestCase):\n    def test_basic(self):\n        self.assertEqual(separate_paren_groups('( ) (( )) (( )( ))'), ['()', '(())', '(()())'])\n\n    def test_nested(self):\n        self.assertEqual(separate_paren_groups('(()()) ((())) () ((())()())'), [\n            '(()())', '((()))', '()', '((())()())'\n        ])\n\n    def test_multiple_groups(self):\n        self.assertEqual(separate_paren_groups('() (()) ((())) (((())))'), [\n            '()', '(())', '((()))', '(((())))'\n        ])\n\n\n    def test_ignore_spaces(self):\n        self.assertEqual(separate_paren_groups('   (   )   '), ['()'])\n\nif __name__ == '__main__':\n    unittest.main()",
         "similarity_score": 0.6935788989067078
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "from closest_integer import closest_integer\nimport pytest\n\n@pytest.mark.parametrize('input_val', ['10', '15.3'])\ndef test_valid_values(input_val):\n    assert type(closest_integer(input_val)) == int\n\n\n# Test case where the result should be an even integer\ndef test_even():\n    expected_result = 8\n    actual_result = closest_integer('7.6')\n    assert actual_result == expected_result\n\n\n# Test case where the result should be an odd integer\ndef test_odd():\n    expected_result = 9\n    actual_result = closest_integer('8.6')\n    assert actual_result == expected_result\n\n\n# Test case where the decimal part of the input is exactly .5\ndef test_halfway():\n    expected_result = 15\n    actual_result = closest_integer('14.5')\n    assert actual_result == expected_result\n\n\n# Test case where the input has leading or trailing spaces\ndef test_spaces():\n    expected_result = 10\n    actual_result = closest_integer('  10.3 ')\n    assert actual_result == expected_result\n\n\n# Test case where the input contains multiple decimals\ndef test_multiple_decimal_points():\n    with pytest.raises(ValueError):\n        _ = closest_integer('10..3')\n\n\n# Test case where the input does not contain any digits\ndef test_no_digits():\n    with pytest.raises(ValueError):\n        _ = closest_integer('.')\n\n\n\n\n\n# Test case where the input is an invalid data type\ndef test_invalid_data_type():\n    with pytest.raises(TypeError):\n        _ = closest_integer([])",
         "similarity_score": 0.7240120768547058
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "from file_name_check import file_name_check\nimport pytest\n\n@pytest.mark.parametrize('filename, expected', [\n    (\"example.txt\", \"Yes\"),\n    (\"1example.dll\", \"No\"),\n    (\"hello.exe\", \"Yes\"),\n    (\"myprogram.dll\", \"Yes\"),\n    (\"thisisaverylongfilenamethatshouldnotbevalid.doc\", \"No\"),\n    (\"456789abcde.pdf\", \"No\"),\n    (\"123.jpg\", \"No\"),\n    (\"noextension\", \"No\"),\n    (\"empty.\", \"No\"),\n    (\".hidden\", \"No\"),\n    (\"invalidsuffix.png\", \"No\"),\n    (\"invalidcharacters!#$.dat\", \"No\"),\n])\ndef test_file_name_check(filename, expected):\n    assert file_name_check(filename) == expected",
         "similarity_score": 1.0
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "import unittest\nfrom typing import List, Optional, Tuple\nfrom find_closest_elements import find_closest_elements\nimport random\n\nclass TestFindClosestElements(unittest.TestCase):\n\n    def test_single_element_list(self):\n        self.assertEqual(find_closest_elements([1]), None)\n\n    def test_two_element_list(self):\n        self.assertEqual(find_closest_elements([1, 2]), (1, 2))\n\n    def test_multiple_identical_elements(self):\n        self.assertEqual(find_closest_elements([1, 2, 2, 3]), (2, 2))\n\n\nif __name__ == \"__main__\":\n    unittest.main()",
         "similarity_score": 0.6532688736915588
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "import unittest\nfrom numerical_letter_grade import numerical_letter_grade\n\nclass NumericalLetterGradeTests(unittest.TestCase):\n    def test_all_gpas(self):\n        grades = [4.0, 3, 1.7, 2, 3.5]\n        actual = numerical_letter_grade(grades)\n        expected = [\"A+\", \"B\", \"C-\", \"C\", \"A-\"]\n        self.assertListEqual(actual, expected)\n\n    def test_one_student(self):\n        grades = [3.2]\n        actual = numerical_letter_grade(grades)\n        expected = [\"B+\"]\n        self.assertListEqual(actual, expected)\n\n    def test_no_students(self):\n        grades = []\n        actual = numerical_letter_grade(grades)\n        expected = []\n        self.assertListEqual(actual, expected)\n",
         "similarity_score": 0.7122662663459778
     },
     {
-        "prompt_text": " find valid name",
+        "prompt_text": "hell naw",
         "candidate_code": "import unittest\nfrom separate_paren_groups import separate_paren_groups\n\nclass TestSeparateParenGroups(unittest.TestCase):\n    def test_empty_input(self):\n        self.assertEqual(separate_paren_groups(\"\"), [])\n\n    def test_single_group(self):\n        self.assertEqual(separate_paren_groups(\"(())\"), [\"(())\"])\n\n    def test_multiple_groups(self):\n        self.assertEqual(separate_paren_groups(\"( ) (( )) (( )( ))\"), [\"()\", \"(())\", \"(()())\"])\n\n    def test_nested_groups(self):\n        self.assertEqual(separate_paren_groups(\"((()))((())))\"), [\"((()))\", \"((()))\"])\n\n\nif __name__ == '__main__':\n    unittest.main()",
         "similarity_score": 0.7749055624008179
     }
