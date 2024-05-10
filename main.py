@@ -5,6 +5,7 @@ import json
 import time
 import sys
 
+# Function to initialize the model and measure the time it takes
 def initialize_model():
     start_time = time.perf_counter()
     model_instance = model.Model()
@@ -12,6 +13,7 @@ def initialize_model():
     print(f"Initializing model took {end_time - start_time:.2f} seconds")
     return model_instance
 
+# Function to load unit tests, summarize them, and encode the summaries
 def load_unit_tests(model_instance):
     start_time = time.perf_counter()
     unittests = []
@@ -29,6 +31,7 @@ def load_unit_tests(model_instance):
     print(f"Loading unit tests took {end_time - start_time:.2f} seconds")
     return unittests, unittest_code_text, unittest_text_embeddings
 
+# Function to get user input and measure the time it takes
 def get_user_input():
     start_time = time.perf_counter()
     flag = int(input("Enter 1 for text similarity or 2 for code similarity: "))
@@ -36,6 +39,7 @@ def get_user_input():
     print(f"Getting user input took {end_time - start_time:.2f} seconds")
     return flag
 
+# Function to perform text similarity and measure the time it takes
 def perform_text_similarity(model_instance, unittest_text_embeddings):
     text = input("Enter the text: ")
     start_time = time.perf_counter()
@@ -57,6 +61,7 @@ def perform_text_similarity(model_instance, unittest_text_embeddings):
     end_time = time.perf_counter()
     print(f"Text similarity took {end_time - start_time:.2f} seconds")
 
+# Function to perform code similarity and measure the time it takes
 def perform_code_similarity(model_instance, unittest_text_embeddings):
     code_input = input("Enter the code: ")
     start_time = time.perf_counter()
@@ -78,6 +83,7 @@ def perform_code_similarity(model_instance, unittest_text_embeddings):
     end_time = time.perf_counter()
     print(f"Code similarity took {end_time - start_time:.2f} seconds")
 
+# Main function to orchestrate the program
 def main(flag=None, input_text=None, input_code=None):
     program_start_time = time.perf_counter()
     model_instance = initialize_model()
