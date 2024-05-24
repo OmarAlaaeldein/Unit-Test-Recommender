@@ -12,8 +12,8 @@ y = norm.pdf(x_range, mean_init_time, std_init_time)
 
 # Plotting
 plt.figure(figsize=(8, 6))
-plt.plot(x_range, y, color='blue', label=f'Mean init time (Mean: {mean_init_time}, SD: {std_init_time})')
-plt.fill_between(x_range, y, color='blue', alpha=0.2)
+plt.plot(x_range, y, color='orange', label=f'Mean init time (Mean: {mean_init_time}, SD: {std_init_time})')
+plt.fill_between(x_range, y, color='orange', alpha=0.2)
 
 # Calculate 95% confidence interval
 conf_int = norm.interval(0.95, loc=mean_init_time, scale=std_init_time)
