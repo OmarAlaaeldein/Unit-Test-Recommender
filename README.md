@@ -1,6 +1,6 @@
 # Unit Test Recommendation Engine
 
-This project provides a Python script designed to streamline the process of finding relevant unit tests for a given piece of code or a textual description. Leveraging machine learning models, the script recommends unit tests based on either textual descriptions or similar tests.
+This project provides a Python pipeline designed to streamline the process of finding relevant unit tests for a given piece of code or a textual description. Leveraging machine learning models, the script recommends unit tests based on either textual descriptions or similar tests.
 
 ## Usage
 
