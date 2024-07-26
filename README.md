@@ -19,6 +19,10 @@ If you want to perform code similarity, you can use the following command:
 python main.py 2 "def add_numbers(a, b): return a + b"
 ```
 
+The entire pipeline is outlined in the following figure:
+![Unit Test Recommender](pipeline.png)
+
+
 ## How it Works
 
 The script operates in the following steps:
